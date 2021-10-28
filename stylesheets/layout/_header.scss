@@ -1,0 +1,122 @@
+header {
+	display: flex;
+	align-items: flex-start;
+	height: 330px;
+	background: url(../../images/image-hero-mobile.jpg) center bottom no-repeat;
+	background-size: cover;
+
+	nav {
+		@include container;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		flex-wrap: wrap;
+		margin-top: 30px;
+		padding-top: 5px;
+
+		.hamburger {
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+			align-items: center;
+			height: 25px;
+
+			.first-line,
+			.second-line,
+			.third-line {
+				width: 30px;
+				height: 2px;
+				background-color: $light-white;
+				transition: 1.5s;
+				pointer-events: none;
+			}
+			.second-line {
+				transition: 1s;
+			}
+
+			&:hover {
+				cursor: pointer;
+			}
+		}
+
+		.nav-links {
+			width: 100%;
+			height: 230px;
+			display: none; // display flex when clicked
+			flex-wrap: wrap;
+			flex-direction: column;
+			justify-content: space-between;
+			margin-top: 30px;
+			border-radius: $border-radius;
+			background-color: $white;
+			overflow: hidden; // hide children bg
+
+			a {
+				display: block;
+				color: $black;
+				height: 33.3%;
+				padding: 25px;
+				border-top: 1px solid rgba(128, 128, 128, 0.2);
+				font-size: 1.3rem;
+				transition: 0.5s;
+
+				&:hover {
+					background-color: rgba(128, 128, 128, 0.2);
+				}
+			}
+		}
+	}
+}
+
+header nav .nav-links-enter {
+	display: flex;
+	animation: animate-links-enter 1.2s both;
+}
+header nav .nav-links-leave {
+	animation: animate-links-leave 1.2s 0.2s both;
+}
+
+@keyframes animate-links-enter {
+	from {
+		transform: translateX(-150%);
+	}
+	to {
+		transform: translateX(0);
+	}
+}
+@keyframes animate-links-leave {
+	from {
+		transform: translateX(0);
+	}
+	to {
+		transform: translateX(-150%);
+	}
+}
+
+header nav .hamburger-active {
+	.second-line {
+		opacity: 0;
+	}
+	.first-line {
+		transform: rotate(45deg) translate(8px, 8px);
+	}
+	.third-line {
+		transform: rotate(-45deg) translate(8px, -8px);
+	}
+}
+
+// <header>
+// 			<nav>
+// 				<a href="#"><img src="images/logo.svg" alt="Crowdfund logo"></a>
+// 				<div class="hambuger">
+// 					<div class="first-line"></div>
+// 					<div class="second-line"></div>
+// 					<div class="third-line"></div>
+// 				</div>
+// 				<div class="nav-links">
+// 					<a href="#">About</a>
+// 					<a href="#">Discover</a>
+// 					<a href="#">Get Started</a>
+// 				</div>
+// 			</nav>
+// 		</header>

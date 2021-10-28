@@ -88,3 +88,242 @@ button:-moz-focusring,
     scroll-behavior: auto !important;
   }
 }
+
+header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  height: 330px;
+  background: url(../../images/image-hero-mobile.jpg) center bottom no-repeat;
+  background-size: cover;
+}
+
+header nav {
+  width: 90%;
+  max-width: 1000px;
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  margin-top: 30px;
+  padding-top: 5px;
+}
+
+header nav .hamburger {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 25px;
+}
+
+header nav .hamburger .first-line,
+header nav .hamburger .second-line,
+header nav .hamburger .third-line {
+  width: 30px;
+  height: 2px;
+  background-color: rgba(250, 250, 250, 0.95);
+  -webkit-transition: 1.5s;
+  transition: 1.5s;
+  pointer-events: none;
+}
+
+header nav .hamburger .second-line {
+  -webkit-transition: 1s;
+  transition: 1s;
+}
+
+header nav .hamburger:hover {
+  cursor: pointer;
+}
+
+header nav .nav-links {
+  width: 100%;
+  height: 230px;
+  display: none;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-top: 30px;
+  border-radius: 10px;
+  background-color: #fafafa;
+  overflow: hidden;
+}
+
+header nav .nav-links a {
+  display: block;
+  color: black;
+  height: 33.3%;
+  padding: 25px;
+  border-top: 1px solid rgba(128, 128, 128, 0.2);
+  font-size: 1.3rem;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+header nav .nav-links a:hover {
+  background-color: rgba(128, 128, 128, 0.2);
+}
+
+header nav .nav-links-enter {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-animation: animate-links-enter 1.2s both;
+          animation: animate-links-enter 1.2s both;
+}
+
+header nav .nav-links-leave {
+  -webkit-animation: animate-links-leave 1.2s 0.2s both;
+          animation: animate-links-leave 1.2s 0.2s both;
+}
+
+@-webkit-keyframes animate-links-enter {
+  from {
+    -webkit-transform: translateX(-150%);
+            transform: translateX(-150%);
+  }
+  to {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+}
+
+@keyframes animate-links-enter {
+  from {
+    -webkit-transform: translateX(-150%);
+            transform: translateX(-150%);
+  }
+  to {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+}
+
+@-webkit-keyframes animate-links-leave {
+  from {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+  to {
+    -webkit-transform: translateX(-150%);
+            transform: translateX(-150%);
+  }
+}
+
+@keyframes animate-links-leave {
+  from {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+  to {
+    -webkit-transform: translateX(-150%);
+            transform: translateX(-150%);
+  }
+}
+
+header nav .hamburger-active .second-line {
+  opacity: 0;
+}
+
+header nav .hamburger-active .first-line {
+  -webkit-transform: rotate(45deg) translate(8px, 8px);
+          transform: rotate(45deg) translate(8px, 8px);
+}
+
+header nav .hamburger-active .third-line {
+  -webkit-transform: rotate(-45deg) translate(8px, -8px);
+          transform: rotate(-45deg) translate(8px, -8px);
+}
+
+@media screen and (min-width: 600px) {
+  header {
+    background: url(../../images/image-hero-desktop.jpg) center no-repeat;
+    background-size: cover;
+  }
+  header nav {
+    max-width: 1200px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    margin-top: 30px;
+    padding-top: 5px;
+  }
+  header nav .hamburger {
+    display: none;
+  }
+  header nav .nav-links {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    width: 350px;
+    height: auto;
+    -ms-flex-wrap: nowrap;
+        flex-wrap: nowrap;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    margin-top: 0;
+    border-radius: 0;
+    background-color: initial;
+    overflow: visible;
+  }
+  header nav .nav-links a {
+    display: inline-block;
+    color: #fafafa;
+    height: auto;
+    padding: 10px;
+    font-size: 1.2rem;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    outline: initial;
+    -webkit-backdrop-filter: blur(5px);
+            backdrop-filter: blur(5px);
+    border: initial;
+    border-radius: 20px;
+  }
+  header nav .nav-links a:hover {
+    background-color: initial;
+  }
+}
