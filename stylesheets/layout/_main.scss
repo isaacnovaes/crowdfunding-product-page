@@ -1,0 +1,73 @@
+main {
+	@include container;
+	position: relative;
+	z-index: 1; // make sure it is at the same z-index than the header
+	// when hamburger links are activated
+	transform: translateY(-65px);
+
+	.master-craft-block {
+		@include card;
+
+		&::before {
+			content: " ";
+			display: inline-block;
+			width: 56px;
+			height: 56px;
+			background-image: url("../../images/logo-mastercraft.svg");
+			position: absolute;
+			top: -30px;
+			left: 50%;
+			transform: translateX(-50%);
+		}
+
+		h1 {
+			width: 80%;
+			margin: 0 auto;
+			text-align: center;
+			font-size: 1.5rem;
+			font-weight: 700;
+		}
+		p {
+			color: $dark-gray;
+			text-align: center;
+			font-size: 0.98rem;
+			font-weight: 500;
+			line-height: 1.5;
+			margin: 25px 0;
+		}
+
+		.button-block {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+
+			button {
+				@include button;
+			}
+
+			.bookmark-block {
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+
+				&:hover {
+					cursor: pointer;
+					span.bookmark-logo {
+						opacity: 0.8;
+					}
+				}
+
+				span.bookmark-logo {
+					display: block;
+					width: 56px;
+					height: 56px;
+					background-image: url("../../images/icon-bookmark.svg");
+					transition: 0.5s;
+				}
+				span.bookmark-text {
+					display: none;
+				}
+			}
+		}
+	}
+}

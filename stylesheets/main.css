@@ -31,6 +31,7 @@ html:focus-within {
 
 body {
   min-height: 100vh;
+  background-color: rgba(250, 250, 250, 0.95);
 }
 
 img {
@@ -98,12 +99,15 @@ header {
           align-items: flex-start;
   height: 330px;
   background: url(../../images/image-hero-mobile.jpg) center bottom no-repeat;
+  background-blend-mode: darken;
   background-size: cover;
+  position: relative;
+  z-index: 1;
 }
 
 header nav {
   width: 90%;
-  max-width: 1000px;
+  max-width: 900px;
   margin: 0 auto;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -118,6 +122,11 @@ header nav {
       flex-wrap: wrap;
   margin-top: 30px;
   padding-top: 5px;
+}
+
+header nav > a img {
+  width: 140px;
+  height: 20px;
 }
 
 header nav .hamburger {
@@ -141,7 +150,7 @@ header nav .hamburger .first-line,
 header nav .hamburger .second-line,
 header nav .hamburger .third-line {
   width: 30px;
-  height: 2px;
+  height: 3px;
   background-color: rgba(250, 250, 250, 0.95);
   -webkit-transition: 1.5s;
   transition: 1.5s;
@@ -173,7 +182,6 @@ header nav .nav-links {
   margin-top: 30px;
   border-radius: 10px;
   background-color: #fafafa;
-  overflow: hidden;
 }
 
 header nav .nav-links a {
@@ -181,6 +189,7 @@ header nav .nav-links a {
   color: black;
   height: 33.3%;
   padding: 25px;
+  border-radius: 10px;
   border-top: 1px solid rgba(128, 128, 128, 0.2);
   font-size: 1.3rem;
   -webkit-transition: 0.5s;
@@ -253,13 +262,136 @@ header nav .hamburger-active .second-line {
 }
 
 header nav .hamburger-active .first-line {
-  -webkit-transform: rotate(45deg) translate(8px, 8px);
-          transform: rotate(45deg) translate(8px, 8px);
+  -webkit-transform: rotate(45deg) translate(7px, 8px);
+          transform: rotate(45deg) translate(7px, 8px);
 }
 
 header nav .hamburger-active .third-line {
-  -webkit-transform: rotate(-45deg) translate(8px, -8px);
-          transform: rotate(-45deg) translate(8px, -8px);
+  -webkit-transform: rotate(-45deg) translate(7px, -8px);
+          transform: rotate(-45deg) translate(7px, -8px);
+}
+
+.bgBlur {
+  position: absolute;
+  top: 330px;
+  width: 100%;
+  height: calc(100vh - 330px);
+  background-color: rgba(0, 0, 0, 0.418);
+  -webkit-backdrop-filter: blur(5px);
+          backdrop-filter: blur(5px);
+  z-index: 5;
+}
+
+main {
+  width: 90%;
+  max-width: 900px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+  -webkit-transform: translateY(-65px);
+          transform: translateY(-65px);
+}
+
+main .master-craft-block {
+  background-color: #fafafa;
+  border-radius: 10px;
+  padding: 50px 20px 30px;
+  border: 1px solid rgba(128, 128, 128, 0.178);
+  -webkit-box-shadow: 2px 2px 5px rgba(128, 128, 128, 0.178);
+          box-shadow: 2px 2px 5px rgba(128, 128, 128, 0.178);
+}
+
+main .master-craft-block::before {
+  content: " ";
+  display: inline-block;
+  width: 56px;
+  height: 56px;
+  background-image: url("../../images/logo-mastercraft.svg");
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+
+main .master-craft-block h1 {
+  width: 80%;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+main .master-craft-block p {
+  color: #7a7a7a;
+  text-align: center;
+  font-size: 0.98rem;
+  font-weight: 500;
+  line-height: 1.5;
+  margin: 25px 0;
+}
+
+main .master-craft-block .button-block {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+main .master-craft-block .button-block button {
+  width: 250px;
+  padding: 20px;
+  background-color: #3cb4ac;
+  color: #fafafa;
+  font-weight: 700;
+  letter-spacing: 2px;
+  border: none;
+  border-radius: 30px;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+main .master-craft-block .button-block button:hover {
+  background-color: #147b74;
+  cursor: pointer;
+}
+
+main .master-craft-block .button-block .bookmark-block {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+main .master-craft-block .button-block .bookmark-block:hover {
+  cursor: pointer;
+}
+
+main .master-craft-block .button-block .bookmark-block:hover span.bookmark-logo {
+  opacity: 0.8;
+}
+
+main .master-craft-block .button-block .bookmark-block span.bookmark-logo {
+  display: block;
+  width: 56px;
+  height: 56px;
+  background-image: url("../../images/icon-bookmark.svg");
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+main .master-craft-block .button-block .bookmark-block span.bookmark-text {
+  display: none;
 }
 
 @media screen and (min-width: 600px) {
@@ -268,7 +400,6 @@ header nav .hamburger-active .third-line {
     background-size: cover;
   }
   header nav {
-    max-width: 1200px;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -318,12 +449,46 @@ header nav .hamburger-active .third-line {
     -webkit-transition: 0.5s;
     transition: 0.5s;
     outline: initial;
-    -webkit-backdrop-filter: blur(5px);
-            backdrop-filter: blur(5px);
     border: initial;
     border-radius: 20px;
   }
   header nav .nav-links a:hover {
     background-color: initial;
+  }
+  main .master-craft-block {
+    padding: 50px 40px 30px;
+  }
+  main .master-craft-block .button-block .bookmark-block {
+    -webkit-transform: translateX(56px);
+            transform: translateX(56px);
+  }
+  main .master-craft-block .button-block .bookmark-block:hover {
+    cursor: pointer;
+  }
+  main .master-craft-block .button-block .bookmark-block:hover span.bookmark-text {
+    background-color: rgba(200, 200, 200, 0.8);
+    width: 165px;
+  }
+  main .master-craft-block .button-block .bookmark-block span.bookmark-logo {
+    display: block;
+    width: 56px;
+    height: 56px;
+    background-image: url("../../images/icon-bookmark.svg");
+    position: relative;
+    z-index: 2;
+  }
+  main .master-craft-block .button-block .bookmark-block span.bookmark-text {
+    display: inline-block;
+    background-color: rgba(128, 128, 128, 0.178);
+    padding: 19px;
+    -webkit-transform: translateX(-56px);
+            transform: translateX(-56px);
+    border-radius: 50px;
+    text-align: right;
+    width: 155px;
+    position: relative;
+    z-index: 1;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
   }
 }

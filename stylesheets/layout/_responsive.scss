@@ -3,7 +3,6 @@
 		background: url(../../images/image-hero-desktop.jpg) center no-repeat;
 		background-size: cover;
 		nav {
-			max-width: 1200px;
 			display: flex;
 			justify-content: space-between;
 			align-items: center;
@@ -36,12 +35,50 @@
 					font-size: 1.2rem;
 					transition: 0.5s;
 					outline: initial;
-					backdrop-filter: blur(5px);
 					border: initial;
 					border-radius: 20px;
 
 					&:hover {
 						background-color: initial;
+					}
+				}
+			}
+		}
+	}
+
+	main {
+		.master-craft-block {
+			@include card-padding;
+
+			.button-block {
+				.bookmark-block {
+					transform: translateX(56px); // revert transform translate from span.bookmark-text
+					&:hover {
+						cursor: pointer;
+						span.bookmark-text {
+							background-color: rgba(200, 200, 200, 0.8);
+							width: 165px;
+						}
+					}
+					span.bookmark-logo {
+						display: block;
+						width: 56px;
+						height: 56px;
+						background-image: url("../../images/icon-bookmark.svg");
+						position: relative;
+						z-index: 2;
+					}
+					span.bookmark-text {
+						display: inline-block;
+						background-color: $light-gray;
+						padding: 19px;
+						transform: translateX(-56px);
+						border-radius: 50px;
+						text-align: right;
+						width: 155px;
+						position: relative;
+						z-index: 1;
+						transition: 0.5s;
 					}
 				}
 			}

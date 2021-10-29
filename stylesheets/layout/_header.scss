@@ -3,7 +3,11 @@ header {
 	align-items: flex-start;
 	height: 330px;
 	background: url(../../images/image-hero-mobile.jpg) center bottom no-repeat;
+	background-blend-mode: darken;
 	background-size: cover;
+	position: relative;
+	z-index: 1; // make sure the header is at the same z-index than main
+	// when hamburger links are activated
 
 	nav {
 		@include container;
@@ -13,6 +17,13 @@ header {
 		flex-wrap: wrap;
 		margin-top: 30px;
 		padding-top: 5px;
+
+		> a {
+			img {
+				width: 140px;
+				height: 20px;
+			}
+		}
 
 		.hamburger {
 			display: flex;
@@ -25,7 +36,7 @@ header {
 			.second-line,
 			.third-line {
 				width: 30px;
-				height: 2px;
+				height: 3px;
 				background-color: $light-white;
 				transition: 1.5s;
 				pointer-events: none;
@@ -49,13 +60,13 @@ header {
 			margin-top: 30px;
 			border-radius: $border-radius;
 			background-color: $white;
-			overflow: hidden; // hide children bg
 
 			a {
 				display: block;
 				color: $black;
 				height: 33.3%;
 				padding: 25px;
+				border-radius: $border-radius;
 				border-top: 1px solid rgba(128, 128, 128, 0.2);
 				font-size: 1.3rem;
 				transition: 0.5s;
@@ -98,25 +109,19 @@ header nav .hamburger-active {
 		opacity: 0;
 	}
 	.first-line {
-		transform: rotate(45deg) translate(8px, 8px);
+		transform: rotate(45deg) translate(7px, 8px);
 	}
 	.third-line {
-		transform: rotate(-45deg) translate(8px, -8px);
+		transform: rotate(-45deg) translate(7px, -8px);
 	}
 }
 
-// <header>
-// 			<nav>
-// 				<a href="#"><img src="images/logo.svg" alt="Crowdfund logo"></a>
-// 				<div class="hambuger">
-// 					<div class="first-line"></div>
-// 					<div class="second-line"></div>
-// 					<div class="third-line"></div>
-// 				</div>
-// 				<div class="nav-links">
-// 					<a href="#">About</a>
-// 					<a href="#">Discover</a>
-// 					<a href="#">Get Started</a>
-// 				</div>
-// 			</nav>
-// 		</header>
+.bgBlur {
+	position: absolute;
+	top: 330px;
+	width: 100%;
+	height: calc(100vh - 330px);
+	background-color: rgba(0, 0, 0, 0.418);
+	backdrop-filter: blur(5px);
+	z-index: 5; // when hamburger is active, .bgBlur stays on top of the main HTML element
+}
