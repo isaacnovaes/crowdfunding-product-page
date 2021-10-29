@@ -1,7 +1,9 @@
 @media screen and (min-width: 600px) {
-	header {
+	.bgHeader {
 		background: url(../../images/image-hero-desktop.jpg) center no-repeat;
 		background-size: cover;
+	}
+	header {
 		nav {
 			display: flex;
 			justify-content: space-between;

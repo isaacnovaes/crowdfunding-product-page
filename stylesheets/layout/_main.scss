@@ -1,7 +1,7 @@
 main {
 	@include container;
 	position: relative;
-	z-index: 1; // make sure it is at the same z-index than the header
+	z-index: 0; // make sure it is at the same z-index than the header
 	// when hamburger links are activated
 	transform: translateY(-65px);
 
@@ -22,7 +22,7 @@ main {
 
 		h1 {
 			width: 80%;
-			margin: 0 auto;
+			margin: 15px auto 0;
 			text-align: center;
 			font-size: 1.5rem;
 			font-weight: 700;
@@ -71,3 +71,7 @@ main {
 		}
 	}
 }
+
+// .z-index {
+// 	z-index: -2;
+// }
