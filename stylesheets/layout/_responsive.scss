@@ -53,13 +53,14 @@
 			@include card-padding;
 
 			.button-block {
+				margin-bottom: 30px;
 				.bookmark-block {
 					transform: translateX(56px); // revert transform translate from span.bookmark-text
 					&:hover {
 						cursor: pointer;
 						span.bookmark-text {
 							background-color: rgba(200, 200, 200, 0.8);
-							width: 165px;
+							width: 170px;
 						}
 					}
 					span.bookmark-logo {
@@ -83,6 +84,36 @@
 						transition: 0.5s;
 					}
 				}
+			}
+		}
+
+		.data-card {
+			@include card-padding;
+			flex-direction: row;
+			justify-content: space-between;
+			align-items: center;
+			flex-wrap: wrap;
+
+			.backers {
+				&::before,
+				&::after {
+					transform: rotate(-90deg);
+					height: 1px;
+				}
+
+				&::before {
+					bottom: 50%;
+					left: -130%;
+				}
+				&::after {
+					top: 50%;
+					right: -130%;
+				}
+			}
+
+			.progress-bar {
+				margin-top: 0;
+				margin-bottom: 30px;
 			}
 		}
 	}

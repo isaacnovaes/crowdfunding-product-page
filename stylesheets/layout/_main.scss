@@ -4,7 +4,6 @@ main {
 	z-index: 0; // make sure it is at the same z-index than the header
 	// when hamburger links are activated
 	transform: translateY(-65px);
-
 	.master-craft-block {
 		@include card;
 
@@ -40,6 +39,7 @@ main {
 			display: flex;
 			justify-content: space-between;
 			align-items: center;
+			margin-top: 30px;
 
 			button {
 				@include button;
@@ -70,8 +70,65 @@ main {
 			}
 		}
 	}
-}
 
-// .z-index {
-// 	z-index: -2;
-// }
+	.data-card {
+		@include card;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		align-items: center;
+
+		.backed,
+		.backers,
+		.days {
+			h2 {
+				font-size: 2rem;
+				font-weight: 700;
+				text-align: center;
+			}
+			p {
+				font-weight: 400;
+				text-align: center;
+				color: $dark-gray;
+				margin-top: 10px;
+			}
+		}
+
+		.backers {
+			margin: 45px 0;
+			position: relative;
+
+			&::before,
+			&::after {
+				display: block;
+				content: "";
+				width: 100px;
+				height: 2px;
+				background-color: $light-gray;
+				position: absolute;
+			}
+			&::before {
+				bottom: 80px;
+			}
+			&::after {
+				top: 85px;
+			}
+		}
+
+		.progress-bar {
+			margin-top: 45px;
+			height: 12px;
+			width: 100%;
+			flex-basis: 100%;
+			background-color: $light-gray;
+			border-radius: $border-radius;
+
+			.progress-bar-content {
+				height: inherit;
+				border-radius: inherit;
+				width: 89.914%; // 89,914/100,000
+				background-color: $moderate-cyan;
+			}
+		}
+	}
+}

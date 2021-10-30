@@ -7,13 +7,14 @@
 @mixin card {
 	background-color: $white;
 	border-radius: $border-radius;
-	padding: 50px 20px 30px;
+	padding: 20px;
 	border: 1px solid $light-gray;
 	box-shadow: 2px 2px 5px $light-gray;
+	margin-bottom: 30px;
 }
 
 @mixin card-padding {
-	padding: 50px 40px 30px;
+	padding: 20px 40px;
 }
 
 @mixin button {

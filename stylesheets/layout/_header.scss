@@ -5,7 +5,7 @@
 	background-size: cover;
 	position: absolute;
 	top: 0;
-	z-index: -1;
+	z-index: -1; // .bgHeader stays bellow main HTML element
 }
 
 .bgBlur {
@@ -15,7 +15,8 @@
 	height: 100vh;
 	background-image: linear-gradient(to bottom, black 1%, rgba(0, 0, 0, 0.418), transparent);
 	backdrop-filter: blur(1px);
-	z-index: 1; // when hamburger is active, .bgBlur stays on top of the main HTML element
+	z-index: 1; // .bgBlur stays on top of the main HTML element and bellow header
+	visibility: hidden;
 }
 
 header {
@@ -23,8 +24,7 @@ header {
 	display: flex;
 	align-items: flex-start;
 	position: relative;
-	z-index: 2; // make sure the header is at the same z-index than main
-	// when hamburger links are activated
+	z-index: 2; // header is above .bgBlur and bellow modal
 
 	nav {
 		@include container;
@@ -81,6 +81,7 @@ header {
 			a {
 				display: block;
 				color: $black;
+				font-weight: 700;
 				height: 33.3%;
 				padding: 25px;
 				border-radius: $border-radius;
@@ -132,5 +133,3 @@ header nav .hamburger-active {
 		transform: rotate(-45deg) translate(7px, -8px);
 	}
 }
-
-

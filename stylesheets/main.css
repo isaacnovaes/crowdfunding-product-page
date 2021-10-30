@@ -6,6 +6,7 @@ html {
   -webkit-text-size-adjust: 100%;
   font-size: 16px;
   font-weight: 400;
+  color: rgba(0, 0, 0, 0.842);
   /* Set core root defaults */
 }
 
@@ -45,7 +46,9 @@ a {
 /**
  * Correct the inability to style clickable types in iOS and Safari.
  */
-button, input, textarea {
+button,
+input,
+textarea {
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;
@@ -110,6 +113,7 @@ button:-moz-focusring,
   -webkit-backdrop-filter: blur(1px);
           backdrop-filter: blur(1px);
   z-index: 1;
+  visibility: hidden;
 }
 
 header {
@@ -205,7 +209,8 @@ header nav .nav-links {
 
 header nav .nav-links a {
   display: block;
-  color: black;
+  color: rgba(0, 0, 0, 0.842);
+  font-weight: 700;
   height: 33.3%;
   padding: 25px;
   border-radius: 10px;
@@ -303,10 +308,11 @@ main {
 main .master-craft-block {
   background-color: #fafafa;
   border-radius: 10px;
-  padding: 50px 20px 30px;
+  padding: 20px;
   border: 1px solid rgba(128, 128, 128, 0.178);
   -webkit-box-shadow: 2px 2px 5px rgba(128, 128, 128, 0.178);
           box-shadow: 2px 2px 5px rgba(128, 128, 128, 0.178);
+  margin-bottom: 30px;
 }
 
 main .master-craft-block::before {
@@ -349,6 +355,7 @@ main .master-craft-block .button-block {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  margin-top: 30px;
 }
 
 main .master-craft-block .button-block button {
@@ -400,6 +407,85 @@ main .master-craft-block .button-block .bookmark-block span.bookmark-logo {
 
 main .master-craft-block .button-block .bookmark-block span.bookmark-text {
   display: none;
+}
+
+main .data-card {
+  background-color: #fafafa;
+  border-radius: 10px;
+  padding: 20px;
+  border: 1px solid rgba(128, 128, 128, 0.178);
+  -webkit-box-shadow: 2px 2px 5px rgba(128, 128, 128, 0.178);
+          box-shadow: 2px 2px 5px rgba(128, 128, 128, 0.178);
+  margin-bottom: 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+main .data-card .backed h2,
+main .data-card .backers h2,
+main .data-card .days h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+main .data-card .backed p,
+main .data-card .backers p,
+main .data-card .days p {
+  font-weight: 400;
+  text-align: center;
+  color: #7a7a7a;
+  margin-top: 10px;
+}
+
+main .data-card .backers {
+  margin: 45px 0;
+  position: relative;
+}
+
+main .data-card .backers::before, main .data-card .backers::after {
+  display: block;
+  content: "";
+  width: 100px;
+  height: 2px;
+  background-color: rgba(128, 128, 128, 0.178);
+  position: absolute;
+}
+
+main .data-card .backers::before {
+  bottom: 80px;
+}
+
+main .data-card .backers::after {
+  top: 85px;
+}
+
+main .data-card .progress-bar {
+  margin-top: 45px;
+  height: 12px;
+  width: 100%;
+  -ms-flex-preferred-size: 100%;
+      flex-basis: 100%;
+  background-color: rgba(128, 128, 128, 0.178);
+  border-radius: 10px;
+}
+
+main .data-card .progress-bar .progress-bar-content {
+  height: inherit;
+  border-radius: inherit;
+  width: 89.914%;
+  background-color: #3cb4ac;
 }
 
 @media screen and (min-width: 600px) {
@@ -464,7 +550,10 @@ main .master-craft-block .button-block .bookmark-block span.bookmark-text {
     background-color: initial;
   }
   main .master-craft-block {
-    padding: 50px 40px 30px;
+    padding: 20px 40px;
+  }
+  main .master-craft-block .button-block {
+    margin-bottom: 30px;
   }
   main .master-craft-block .button-block .bookmark-block {
     -webkit-transform: translateX(56px);
@@ -475,7 +564,7 @@ main .master-craft-block .button-block .bookmark-block span.bookmark-text {
   }
   main .master-craft-block .button-block .bookmark-block:hover span.bookmark-text {
     background-color: rgba(200, 200, 200, 0.8);
-    width: 165px;
+    width: 170px;
   }
   main .master-craft-block .button-block .bookmark-block span.bookmark-logo {
     display: block;
@@ -498,5 +587,37 @@ main .master-craft-block .button-block .bookmark-block span.bookmark-text {
     z-index: 1;
     -webkit-transition: 0.5s;
     transition: 0.5s;
+  }
+  main .data-card {
+    padding: 20px 40px;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+  main .data-card .backers::before, main .data-card .backers::after {
+    -webkit-transform: rotate(-90deg);
+            transform: rotate(-90deg);
+    height: 1px;
+  }
+  main .data-card .backers::before {
+    bottom: 50%;
+    left: -130%;
+  }
+  main .data-card .backers::after {
+    top: 50%;
+    right: -130%;
+  }
+  main .data-card .progress-bar {
+    margin-top: 0;
+    margin-bottom: 30px;
   }
 }

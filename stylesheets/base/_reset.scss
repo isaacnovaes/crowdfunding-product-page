@@ -4,6 +4,7 @@ html {
 	-webkit-text-size-adjust: 100%; //Prevent adjustments of font size after orientation changes in iOS.
 	font-size: 16px;
 	font-weight: 400;
+	color: $black;
 
 	/* Set core root defaults */
 	&:focus-within {
@@ -28,7 +29,7 @@ html {
 
 body {
 	min-height: 100vh;
-	background-color: $light-white
+	background-color: $light-white;
 }
 
 img {
@@ -43,7 +44,9 @@ a {
  * Correct the inability to style clickable types in iOS and Safari.
  */
 
-button, input, textarea {
+button,
+input,
+textarea {
 	appearance: none;
 }
 
@@ -85,7 +88,6 @@ button:-moz-focusring,
 		scroll-behavior: auto !important;
 	}
 }
-
 
 //Style the scrollbar
 
