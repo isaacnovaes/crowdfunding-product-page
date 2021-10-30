@@ -3,41 +3,36 @@
 const hamburger = document.querySelector(".hamburger");
 const navLinks = document.querySelector(".nav-links");
 const header = document.querySelector("header");
+const bgBlur = document.querySelector(".bgBlur");
 
-function initCounter() {
-	let counter = 0;
-	return function () {
-		return ++counter % 2 === 0 ? false : true;
-	};
-}
-
-const counter = initCounter();
+let animateLinks = false;
 
 // handles the activation of the hamburger links
 hamburger.addEventListener("click", (event) => {
-	const animateEnter = counter(); // increase counter
-	event.target.classList.toggle("hamburger-active");
-	const bgBlur = document.querySelector(".bg");
+	animateLinks = !animateLinks;
 
-	if (animateEnter) {
+	if (animateLinks) {
 		navLinks.classList.add("nav-links-enter");
-		bgBlur.classList.add("bgBlur");
+		bgBlur.style.visibility = "visible";
+		event.target.classList.add("hamburger-active");
 	} else {
 		navLinks.classList.add("nav-links-leave");
+		event.target.classList.remove("hamburger-active");
 		setTimeout(() => {
 			navLinks.classList.remove("nav-links-leave", "nav-links-enter");
-			bgBlur.classList.remove("bgBlur");
+			bgBlur.style.visibility = "hidden";
 		}, 1000);
 	}
 });
 
 // make sure the blur bg and header bg color are reset when coming from
-// a cellphone size screen to a bigger screen device
+// a cellphone size screen to a bigger screen device while
+// hamburger is active
 window.addEventListener("resize", () => {
 	if (window.innerWidth >= 600) {
 		hamburger.classList.remove("hamburger-active");
-		document.querySelector(".bg").classList.remove("bgBlur");
+		bgBlur.style.visibility = "hidden";
 		navLinks.classList.remove("nav-links-leave", "nav-links-enter");
-		counter();
+		animateLinks = false;
 	}
 });
