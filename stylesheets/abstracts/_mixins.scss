@@ -31,5 +31,6 @@
 	&:hover {
 		background-color: $dark-cyan;
 		cursor: pointer;
+		transform: scale(1.05);
 	}
 }

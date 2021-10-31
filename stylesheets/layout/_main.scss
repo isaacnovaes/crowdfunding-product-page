@@ -207,15 +207,21 @@ main {
 			}
 		}
 	}
-}
-
-.sold-out-card {
-	opacity: 0.5;
-	pointer-events: none;
-	.card-footer button {
-		background-color: $dark-gray;
+	.sold-out-card {
+		opacity: 0.5;
+		pointer-events: none;
+		.card-footer button {
+			background-color: $dark-gray;
+			pointer-events: auto;
+			&:hover {
+				background-color: $dark-gray;
+				cursor: not-allowed;
+				transform: none;
+			}
+		}
 	}
 }
+
 .bgHeader {
 	height: 330px;
 	width: 100%;

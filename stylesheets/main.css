@@ -372,6 +372,8 @@ main .master-craft-block .button-block button {
 main .master-craft-block .button-block button:hover {
   background-color: #147b74;
   cursor: pointer;
+  -webkit-transform: scale(1.05);
+          transform: scale(1.05);
 }
 
 main .master-craft-block .button-block .bookmark-block {
@@ -602,15 +604,25 @@ main .data-card .progress-bar .progress-bar-content {
 .main-block .main-card .card-footer button:hover {
   background-color: #147b74;
   cursor: pointer;
+  -webkit-transform: scale(1.05);
+          transform: scale(1.05);
 }
 
-.sold-out-card {
+.main-block .sold-out-card {
   opacity: 0.5;
   pointer-events: none;
 }
 
-.sold-out-card .card-footer button {
+.main-block .sold-out-card .card-footer button {
   background-color: #7a7a7a;
+  pointer-events: auto;
+}
+
+.main-block .sold-out-card .card-footer button:hover {
+  background-color: #7a7a7a;
+  cursor: not-allowed;
+  -webkit-transform: none;
+          transform: none;
 }
 
 .bgHeader {
