@@ -1,9 +1,10 @@
-@import url("https://fonts.googleapis.com/css2?family=Commissioner:wght@400;500;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Commissioner:wght@300;400;500;600;700;800;900&display=swap");
 html {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  line-height: 1.15;
+  line-height: 1.5;
   -webkit-text-size-adjust: 100%;
+  font-family: "Commissioner", sans-serif;
   font-size: 16px;
   font-weight: 400;
   color: rgba(0, 0, 0, 0.842);
@@ -93,27 +94,25 @@ button:-moz-focusring,
   }
 }
 
-.bgHeader {
-  height: 330px;
-  width: 100%;
-  background: url(../../images/image-hero-mobile.jpg) center bottom no-repeat;
-  background-size: cover;
-  position: absolute;
-  top: 0;
-  z-index: -1;
+html::-webkit-scrollbar {
+  width: 10px;
+  background-color: #3cb4ac;
+  border: 5px solid white;
 }
 
-.bgBlur {
-  position: absolute;
-  top: 0px;
-  width: 100%;
-  height: 100vh;
-  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(1%, black), color-stop(rgba(0, 0, 0, 0.418)), to(transparent));
-  background-image: linear-gradient(to bottom, black 1%, rgba(0, 0, 0, 0.418), transparent);
-  -webkit-backdrop-filter: blur(1px);
-          backdrop-filter: blur(1px);
-  z-index: 1;
-  visibility: hidden;
+html::-webkit-scrollbar-track {
+  background: none;
+}
+
+html::-webkit-scrollbar-thumb {
+  background-color: #3cb4ac;
+  border-right: 2px solid white;
+  border-left: 2px solid white;
+  border-radius: 50px;
+}
+
+html::-webkit-scrollbar-thumb:hover {
+  background-color: #147b74;
 }
 
 header {
@@ -341,7 +340,6 @@ main .master-craft-block p {
   text-align: center;
   font-size: 0.98rem;
   font-weight: 500;
-  line-height: 1.5;
   margin: 25px 0;
 }
 
@@ -364,7 +362,7 @@ main .master-craft-block .button-block button {
   background-color: #3cb4ac;
   color: #fafafa;
   font-weight: 700;
-  letter-spacing: 2px;
+  letter-spacing: 1px;
   border: none;
   border-radius: 30px;
   -webkit-transition: 0.5s;
@@ -417,6 +415,7 @@ main .data-card {
   -webkit-box-shadow: 2px 2px 5px rgba(128, 128, 128, 0.178);
           box-shadow: 2px 2px 5px rgba(128, 128, 128, 0.178);
   margin-bottom: 30px;
+  padding-bottom: 40px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -486,6 +485,159 @@ main .data-card .progress-bar .progress-bar-content {
   border-radius: inherit;
   width: 89.914%;
   background-color: #3cb4ac;
+}
+
+.main-block {
+  background-color: #fafafa;
+  border-radius: 10px;
+  padding: 20px;
+  border: 1px solid rgba(128, 128, 128, 0.178);
+  -webkit-box-shadow: 2px 2px 5px rgba(128, 128, 128, 0.178);
+          box-shadow: 2px 2px 5px rgba(128, 128, 128, 0.178);
+  margin-bottom: 30px;
+  margin-bottom: 0;
+  padding-top: 40px;
+}
+
+.main-block .about-section {
+  margin-bottom: 30px;
+}
+
+.main-block .about-section h2 {
+  font-size: 1.4rem;
+  font-weight: 800;
+  margin-bottom: 25px;
+}
+
+.main-block .about-section p {
+  color: #7a7a7a;
+  font-size: 1.08rem;
+  font-weight: 400;
+}
+
+.main-block .about-section p:first-of-type {
+  margin: 25px 0;
+}
+
+.main-block .main-card {
+  background-color: #fafafa;
+  border-radius: 10px;
+  padding: 20px;
+  border: 1px solid rgba(128, 128, 128, 0.178);
+  -webkit-box-shadow: 2px 2px 5px rgba(128, 128, 128, 0.178);
+          box-shadow: 2px 2px 5px rgba(128, 128, 128, 0.178);
+  margin-bottom: 30px;
+  border: 1px solid rgba(128, 128, 128, 0.373);
+}
+
+.main-block .main-card .card-header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.main-block .main-card .card-header h3:first-of-type {
+  color: rgba(0, 0, 0, 0.842);
+  font-size: 1.08rem;
+  font-weight: 800;
+}
+
+.main-block .main-card .card-header h3:last-of-type {
+  color: #3cb4ac;
+  font-size: 1.08rem;
+  font-weight: 500;
+  margin-top: 10px;
+}
+
+.main-block .main-card > p {
+  margin: 30px 0;
+  color: #7a7a7a;
+  font-size: 1.08rem;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+.main-block .main-card .card-footer .information {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 20px;
+}
+
+.main-block .main-card .card-footer .information span:first-of-type {
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin-right: 10px;
+}
+
+.main-block .main-card .card-footer .information span:last-of-type {
+  color: #7a7a7a;
+  font-weight: 400;
+}
+
+.main-block .main-card .card-footer button {
+  width: 250px;
+  padding: 20px;
+  background-color: #3cb4ac;
+  color: #fafafa;
+  font-weight: 700;
+  letter-spacing: 1px;
+  border: none;
+  border-radius: 30px;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  margin-bottom: 20px;
+}
+
+.main-block .main-card .card-footer button:hover {
+  background-color: #147b74;
+  cursor: pointer;
+}
+
+.sold-out-card {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.sold-out-card .card-footer button {
+  background-color: #7a7a7a;
+}
+
+.bgHeader {
+  height: 330px;
+  width: 100%;
+  background: url(../../images/image-hero-mobile.jpg) center bottom no-repeat;
+  background-size: cover;
+  position: absolute;
+  top: 0;
+  z-index: -1;
+}
+
+.bgBlur {
+  position: absolute;
+  top: 0px;
+  width: 100%;
+  height: 200%;
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0.01%, rgba(0, 0, 0, 0.999)), color-stop(rgba(29, 26, 26, 0.1)), to(transparent));
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.999) 0.01%, rgba(29, 26, 26, 0.1), transparent);
+  -webkit-backdrop-filter: blur(1px);
+          backdrop-filter: blur(1px);
+  z-index: 1;
+  visibility: hidden;
+}
+
+.toggle-overflow {
+  overflow: hidden;
 }
 
 @media screen and (min-width: 600px) {
@@ -619,5 +771,39 @@ main .data-card .progress-bar .progress-bar-content {
   main .data-card .progress-bar {
     margin-top: 0;
     margin-bottom: 30px;
+  }
+  main .main-block {
+    padding: 20px 40px;
+  }
+  main .main-block .main-card {
+    padding: 20px 40px;
+  }
+  main .main-block .main-card .card-header {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  main .main-block .main-card .card-header h3:last-of-type {
+    margin-top: 0;
+  }
+  main .main-block .main-card .card-footer {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    margin-bottom: 10px;
+  }
+  main .main-block .main-card .card-footer .information,
+  main .main-block .main-card .card-footer button {
+    margin-bottom: 0;
   }
 }

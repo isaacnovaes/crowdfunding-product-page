@@ -116,5 +116,32 @@
 				margin-bottom: 30px;
 			}
 		}
+
+		.main-block {
+			@include card-padding;
+
+			.main-card {
+				@include card-padding;
+				.card-header {
+					flex-direction: row;
+					align-items: center;
+					h3:last-of-type {
+						margin-top: 0;
+					}
+				}
+
+				.card-footer {
+					display: flex;
+					justify-content: space-between;
+					align-items: center;
+					margin-bottom: 10px;
+
+					.information,
+					button {
+						margin-bottom: 0;
+					}
+				}
+			}
+		}
 	}
 }

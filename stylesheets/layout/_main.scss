@@ -31,7 +31,6 @@ main {
 			text-align: center;
 			font-size: 0.98rem;
 			font-weight: 500;
-			line-height: 1.5;
 			margin: 25px 0;
 		}
 
@@ -73,6 +72,7 @@ main {
 
 	.data-card {
 		@include card;
+		padding-bottom: 40px;
 		display: flex;
 		flex-direction: column;
 		justify-content: space-between;
@@ -131,4 +131,112 @@ main {
 			}
 		}
 	}
+}
+.main-block {
+	@include card;
+	margin-bottom: 0;
+	padding-top: 40px;
+
+	.about-section {
+		margin-bottom: 30px;
+
+		h2 {
+			font-size: 1.4rem;
+			font-weight: 800;
+			margin-bottom: 25px;
+		}
+		p {
+			color: $dark-gray;
+			font-size: 1.08rem;
+			font-weight: 400;
+		}
+		p:first-of-type {
+			margin: 25px 0;
+		}
+	}
+
+	.main-card {
+		@include card;
+		border: 1px solid rgba(128, 128, 128, 0.373);
+
+		.card-header {
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+
+			h3:first-of-type {
+				color: $black;
+				font-size: 1.08rem;
+				font-weight: 800;
+			}
+			h3:last-of-type {
+				color: $moderate-cyan;
+				font-size: 1.08rem;
+				font-weight: 500;
+				margin-top: 10px;
+			}
+		}
+
+		> p {
+			margin: 30px 0;
+			color: $dark-gray;
+			font-size: 1.08rem;
+			font-weight: 400;
+			line-height: 1.6;
+		}
+
+		.card-footer {
+			.information {
+				display: flex;
+				align-items: center;
+				margin-bottom: 20px;
+				span:first-of-type {
+					font-size: 2.2rem;
+					font-weight: 700;
+					margin-right: 10px;
+				}
+				span:last-of-type {
+					color: $dark-gray;
+					font-weight: 400;
+				}
+			}
+
+			button {
+				@include button;
+				margin-bottom: 20px;
+			}
+		}
+	}
+}
+
+.sold-out-card {
+	opacity: 0.5;
+	pointer-events: none;
+	.card-footer button {
+		background-color: $dark-gray;
+	}
+}
+.bgHeader {
+	height: 330px;
+	width: 100%;
+	background: url(../../images/image-hero-mobile.jpg) center bottom no-repeat;
+	background-size: cover;
+	position: absolute;
+	top: 0;
+	z-index: -1; // .bgHeader stays bellow main HTML element
+}
+
+.bgBlur {
+	position: absolute;
+	top: 0px;
+	width: 100%;
+	height: 200%;
+	background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.999) 0.01%, rgba(29, 26, 26, 0.1), transparent);
+	backdrop-filter: blur(1px);
+	z-index: 1; // .bgBlur stays on top of the main HTML element and bellow header
+	visibility: hidden;
+}
+
+.toggle-overflow {
+	overflow: hidden;
 }
