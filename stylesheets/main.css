@@ -357,8 +357,9 @@ main .master-craft-block .button-block {
 }
 
 main .master-craft-block .button-block button {
-  width: 250px;
-  padding: 20px;
+  width: 75%;
+  max-width: 250px;
+  padding: 20px 15px;
   background-color: #3cb4ac;
   color: #fafafa;
   font-weight: 700;
@@ -431,6 +432,11 @@ main .data-card {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  row-gap: 50px;
+  -webkit-column-gap: 0;
+          column-gap: 0;
 }
 
 main .data-card .backed h2,
@@ -450,34 +456,15 @@ main .data-card .days p {
   margin-top: 10px;
 }
 
-main .data-card .backers {
-  margin: 45px 0;
-  position: relative;
-}
-
-main .data-card .backers::before, main .data-card .backers::after {
-  display: block;
-  content: "";
+main .data-card .divider {
   width: 100px;
   height: 2px;
   background-color: rgba(128, 128, 128, 0.178);
-  position: absolute;
-}
-
-main .data-card .backers::before {
-  bottom: 80px;
-}
-
-main .data-card .backers::after {
-  top: 85px;
 }
 
 main .data-card .progress-bar {
-  margin-top: 45px;
   height: 12px;
   width: 100%;
-  -ms-flex-preferred-size: 100%;
-      flex-basis: 100%;
   background-color: rgba(128, 128, 128, 0.178);
   border-radius: 10px;
 }
@@ -558,7 +545,7 @@ main .data-card .progress-bar .progress-bar-content {
   margin-top: 10px;
 }
 
-.main-block .main-card > p {
+.main-block .main-card p.main-card-description {
   margin: 30px 0;
   color: #7a7a7a;
   font-size: 1.08rem;
@@ -588,8 +575,9 @@ main .data-card .progress-bar .progress-bar-content {
 }
 
 .main-block .main-card .card-footer button {
-  width: 250px;
-  padding: 20px;
+  width: 75%;
+  max-width: 250px;
+  padding: 20px 15px;
   background-color: #3cb4ac;
   color: #fafafa;
   font-weight: 700;
@@ -620,7 +608,7 @@ main .data-card .progress-bar .progress-bar-content {
 
 .main-block .sold-out-card .card-footer button:hover {
   background-color: #7a7a7a;
-  cursor: not-allowed;
+  cursor: auto;
   -webkit-transform: none;
           transform: none;
 }
@@ -637,9 +625,9 @@ main .data-card .progress-bar .progress-bar-content {
 
 .bgBlur {
   position: absolute;
-  top: 0px;
+  top: 0;
   width: 100%;
-  height: 200%;
+  height: 100%;
   background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0.01%, rgba(0, 0, 0, 0.999)), color-stop(rgba(29, 26, 26, 0.1)), to(transparent));
   background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.999) 0.01%, rgba(29, 26, 26, 0.1), transparent);
   -webkit-backdrop-filter: blur(1px);
@@ -648,11 +636,192 @@ main .data-card .progress-bar .progress-bar-content {
   visibility: hidden;
 }
 
-.toggle-overflow {
-  overflow: hidden;
+.modal {
+  visibility: hidden;
+  z-index: 4;
+  width: 90%;
+  max-width: 900px;
+  position: absolute;
+  top: 80px;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  background-color: #fafafa;
+  border-radius: 10px;
+  padding: 10px 20px 20px;
 }
 
-@media screen and (min-width: 600px) {
+.modal .modal-content .first-line {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.modal .modal-content .first-line p {
+  color: rgba(0, 0, 0, 0.842);
+  font-size: 1.1rem;
+  font-weight: 800;
+}
+
+.modal .modal-content .first-line button {
+  width: 20px;
+  height: 20px;
+  padding: 20px;
+  background: url("../../images/icon-close-modal.svg") no-repeat center;
+  border: none;
+  cursor: pointer;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+.modal .modal-content .first-line button:hover {
+  background-image: url("../../images/icon-close-modal-hover.svg");
+}
+
+.modal .modal-content p.description {
+  color: #7a7a7a;
+  font-weight: 500;
+  margin-top: 10px;
+}
+
+.modal .modal-content .main-block-modal {
+  margin: 20px 0 10px;
+}
+
+.modal .modal-content .main-block-modal .main-card-modal {
+  margin-bottom: 25px;
+  border: 1px solid rgba(128, 128, 128, 0.378);
+  border-radius: 10px;
+  -webkit-box-shadow: 2px 2px 5px rgba(128, 128, 128, 0.178);
+          box-shadow: 2px 2px 5px rgba(128, 128, 128, 0.178);
+  padding: 20px;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 60px auto;
+      grid-template-columns: 60px auto;
+  -ms-grid-rows: 50px auto 50px;
+      grid-template-rows: 50px auto 50px;
+  row-gap: 15px;
+}
+
+.modal .modal-content .main-block-modal .main-card-modal:last-of-type {
+  margin-bottom: 0;
+}
+
+.modal .modal-content .main-block-modal .main-card-modal input {
+  width: 30px;
+  height: 30px;
+  border: 5px solid white;
+  outline: 2px solid rgba(128, 128, 128, 0.178);
+  border-radius: 50%;
+  padding: 2px;
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 1;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 1;
+  grid-area: 1/1/2/2;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.modal .modal-content .main-block-modal .main-card-modal input:checked {
+  background: #3cb4ac;
+  outline: 2px solid #147b74;
+}
+
+.modal .modal-content .main-block-modal .main-card-modal input:hover {
+  cursor: pointer;
+  outline: 2px solid #147b74;
+}
+
+.modal .modal-content .main-block-modal .main-card-modal .main-card-modal-title {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 1;
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 1;
+  grid-area: 1/2/2/3;
+}
+
+.modal .modal-content .main-block-modal .main-card-modal .main-card-modal-title h3.card-modal-title {
+  color: rgba(0, 0, 0, 0.842);
+  font-weight: 700;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.modal .modal-content .main-block-modal .main-card-modal .main-card-modal-title h3.card-modal-title:hover {
+  cursor: pointer;
+  color: #3cb4ac;
+}
+
+.modal .modal-content .main-block-modal .main-card-modal .main-card-modal-title h3.pledge {
+  color: #3cb4ac;
+  font-weight: 500;
+}
+
+.modal .modal-content .main-block-modal .main-card-modal p.card-modal-description {
+  margin: 30px 0;
+  color: #7a7a7a;
+  font-size: 1.08rem;
+  font-weight: 400;
+  line-height: 1.6;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  -ms-grid-row: 2;
+  -ms-grid-row-span: 1;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  grid-area: 2/1/3/3;
+}
+
+.modal .modal-content .main-block-modal .main-card-modal .information {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.modal .modal-content .main-block-modal .main-card-modal .information span:first-of-type {
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin-right: 10px;
+}
+
+.modal .modal-content .main-block-modal .main-card-modal .information span:last-of-type {
+  color: #7a7a7a;
+  font-weight: 400;
+}
+
+.modal .modal-content .main-block-modal .sold-out-card-modal {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+@media screen and (min-width: 670px) {
   .bgHeader {
     background: url(../../images/image-hero-desktop.jpg) center no-repeat;
     background-size: cover;
@@ -754,6 +923,8 @@ main .data-card .progress-bar .progress-bar-content {
   }
   main .data-card {
     padding: 20px 40px;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
         -ms-flex-direction: row;
@@ -764,21 +935,10 @@ main .data-card .progress-bar .progress-bar-content {
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
-    -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
   }
-  main .data-card .backers::before, main .data-card .backers::after {
-    -webkit-transform: rotate(-90deg);
-            transform: rotate(-90deg);
-    height: 1px;
-  }
-  main .data-card .backers::before {
-    bottom: 50%;
-    left: -130%;
-  }
-  main .data-card .backers::after {
-    top: 50%;
-    right: -130%;
+  main .data-card .divider {
+    -webkit-transform: rotate(-90deg) translateX(-10px);
+            transform: rotate(-90deg) translateX(-10px);
   }
   main .data-card .progress-bar {
     margin-top: 0;
@@ -817,5 +977,51 @@ main .data-card .progress-bar .progress-bar-content {
   main .main-block .main-card .card-footer .information,
   main .main-block .main-card .card-footer button {
     margin-bottom: 0;
+  }
+  .modal .modal-content .main-block-modal .main-card-modal {
+    -ms-grid-columns: 60px auto 100px;
+        grid-template-columns: 60px auto 100px;
+    -ms-grid-rows: 50px auto;
+        grid-template-rows: 50px auto;
+  }
+  .modal .modal-content .main-block-modal .main-card-modal input {
+    -ms-grid-row: 1;
+    -ms-grid-row-span: 1;
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 1;
+    grid-area: 1/1/2/2;
+  }
+  .modal .modal-content .main-block-modal .main-card-modal .main-card-modal-title {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-column-gap: 20px;
+            column-gap: 20px;
+    -ms-grid-row: 1;
+    -ms-grid-row-span: 1;
+    -ms-grid-column: 2;
+    -ms-grid-column-span: 2;
+    grid-area: 1/2/2/4;
+  }
+  .modal .modal-content .main-block-modal .main-card-modal p.card-modal-description {
+    -ms-grid-row: 2;
+    -ms-grid-row-span: 1;
+    -ms-grid-column: 2;
+    -ms-grid-column-span: 2;
+    grid-area: 2/2/3/4;
+  }
+  .modal .modal-content .main-block-modal .main-card-modal .information {
+    -ms-grid-row: 1;
+    -ms-grid-row-span: 1;
+    -ms-grid-column: 3;
+    -ms-grid-column-span: 1;
+    grid-area: 1/3/2/4;
   }
 }

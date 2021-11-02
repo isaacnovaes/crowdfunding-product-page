@@ -1,4 +1,4 @@
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 670px) {
 	.bgHeader {
 		background: url(../../images/image-hero-desktop.jpg) center no-repeat;
 		background-size: cover;
@@ -89,26 +89,13 @@
 
 		.data-card {
 			@include card-padding;
+			flex-wrap: wrap;
 			flex-direction: row;
 			justify-content: space-between;
 			align-items: center;
-			flex-wrap: wrap;
 
-			.backers {
-				&::before,
-				&::after {
-					transform: rotate(-90deg);
-					height: 1px;
-				}
-
-				&::before {
-					bottom: 50%;
-					left: -130%;
-				}
-				&::after {
-					top: 50%;
-					right: -130%;
-				}
+			.divider {
+				transform: rotate(-90deg) translateX(-10px);
 			}
 
 			.progress-bar {
@@ -139,6 +126,36 @@
 					.information,
 					button {
 						margin-bottom: 0;
+					}
+				}
+			}
+		}
+	}
+
+	.modal {
+		.modal-content {
+			.main-block-modal {
+				.main-card-modal {
+					grid-template-columns: 60px auto 100px;
+					grid-template-rows: 50px auto;
+
+					input {
+						grid-area: 1/1/2/2;
+					}
+
+					.main-card-modal-title {
+						flex-direction: row;
+						justify-content: flex-start;
+						align-items: center;
+						column-gap: 20px;
+						grid-area: 1/2/2/4;
+					}
+
+					p.card-modal-description {
+						grid-area: 2/2/3/4;
+					}
+					.information {
+						grid-area: 1/3/2/4;
 					}
 				}
 			}

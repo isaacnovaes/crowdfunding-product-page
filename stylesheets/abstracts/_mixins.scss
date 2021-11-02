@@ -18,8 +18,9 @@
 }
 
 @mixin button {
-	width: 250px;
-	padding: 20px;
+	width: 75%;
+	max-width: 250px;
+	padding: 20px 15px;
 	background-color: $moderate-cyan;
 	color: $white;
 	font-weight: 700;
@@ -33,4 +34,12 @@
 		cursor: pointer;
 		transform: scale(1.05);
 	}
+}
+
+@mixin card-paragraph {
+	margin: 30px 0;
+	color: $dark-gray;
+	font-size: 1.08rem;
+	font-weight: 400;
+	line-height: 1.6;
 }
