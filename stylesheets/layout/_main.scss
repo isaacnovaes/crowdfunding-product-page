@@ -218,7 +218,7 @@ main {
 	position: absolute;
 	top: 0;
 	width: 100%;
-	height: 300%; // when active, it takes body height value
+	height: 100%; // when active, it takes body height value
 	background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.999) 0.01%, rgba(29, 26, 26, 0.1), transparent);
 	backdrop-filter: blur(1px);
 	z-index: 1; // .bgBlur stays on top of the main HTML element and bellow header (z-index 1). When modal is active it goes above header and below modal( z-index 3)
@@ -243,7 +243,7 @@ main {
 	position: absolute;
 	top: 70px;
 	left: 50%;
-	transform: translateX(-50%);
+	transform: translate(-50%, 70px);
 	background-color: $white;
 	border-radius: $border-radius;
 	padding: 10px 20px 20px;
@@ -457,4 +457,5 @@ main {
 .modal-visible {
 	visibility: visible;
 	opacity: 1;
+	transform: translate(-50%, 0);
 }
