@@ -309,8 +309,8 @@ main .master-craft-block {
   border-radius: 10px;
   padding: 20px;
   border: 1px solid rgba(128, 128, 128, 0.178);
-  -webkit-box-shadow: 2px 2px 5px rgba(128, 128, 128, 0.178);
-          box-shadow: 2px 2px 5px rgba(128, 128, 128, 0.178);
+  -webkit-box-shadow: 2px 2px rgba(128, 128, 128, 0.178);
+          box-shadow: 2px 2px rgba(128, 128, 128, 0.178);
   margin-bottom: 30px;
 }
 
@@ -415,8 +415,8 @@ main .data-card {
   border-radius: 10px;
   padding: 20px;
   border: 1px solid rgba(128, 128, 128, 0.178);
-  -webkit-box-shadow: 2px 2px 5px rgba(128, 128, 128, 0.178);
-          box-shadow: 2px 2px 5px rgba(128, 128, 128, 0.178);
+  -webkit-box-shadow: 2px 2px rgba(128, 128, 128, 0.178);
+          box-shadow: 2px 2px rgba(128, 128, 128, 0.178);
   margin-bottom: 30px;
   padding-bottom: 40px;
   display: -webkit-box;
@@ -481,8 +481,8 @@ main .data-card .progress-bar .progress-bar-content {
   border-radius: 10px;
   padding: 20px;
   border: 1px solid rgba(128, 128, 128, 0.178);
-  -webkit-box-shadow: 2px 2px 5px rgba(128, 128, 128, 0.178);
-          box-shadow: 2px 2px 5px rgba(128, 128, 128, 0.178);
+  -webkit-box-shadow: 2px 2px rgba(128, 128, 128, 0.178);
+          box-shadow: 2px 2px rgba(128, 128, 128, 0.178);
   margin-bottom: 30px;
   margin-bottom: 0;
   padding-top: 40px;
@@ -513,8 +513,8 @@ main .data-card .progress-bar .progress-bar-content {
   border-radius: 10px;
   padding: 20px;
   border: 1px solid rgba(128, 128, 128, 0.178);
-  -webkit-box-shadow: 2px 2px 5px rgba(128, 128, 128, 0.178);
-          box-shadow: 2px 2px 5px rgba(128, 128, 128, 0.178);
+  -webkit-box-shadow: 2px 2px rgba(128, 128, 128, 0.178);
+          box-shadow: 2px 2px rgba(128, 128, 128, 0.178);
   margin-bottom: 30px;
   border: 1px solid rgba(128, 128, 128, 0.373);
 }
@@ -627,7 +627,7 @@ main .data-card .progress-bar .progress-bar-content {
   position: absolute;
   top: 0;
   width: 100%;
-  height: 100%;
+  height: 300%;
   background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0.01%, rgba(0, 0, 0, 0.999)), color-stop(rgba(29, 26, 26, 0.1)), to(transparent));
   background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.999) 0.01%, rgba(29, 26, 26, 0.1), transparent);
   -webkit-backdrop-filter: blur(1px);
@@ -636,19 +636,31 @@ main .data-card .progress-bar .progress-bar-content {
   visibility: hidden;
 }
 
+.bgBlur-hamburger-active {
+  visibility: visible;
+}
+
+.bgBlur-modal-active {
+  visibility: visible;
+  z-index: 3;
+}
+
 .modal {
   visibility: hidden;
+  opacity: 0;
   z-index: 4;
   width: 90%;
   max-width: 900px;
   position: absolute;
-  top: 80px;
+  top: 70px;
   left: 50%;
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);
   background-color: #fafafa;
   border-radius: 10px;
   padding: 10px 20px 20px;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
 }
 
 .modal .modal-content .first-line {
@@ -703,11 +715,12 @@ main .data-card .progress-bar .progress-bar-content {
   padding: 20px;
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 60px auto;
-      grid-template-columns: 60px auto;
-  -ms-grid-rows: 50px auto 50px;
-      grid-template-rows: 50px auto 50px;
+  -ms-grid-columns: 60px auto 50px;
+      grid-template-columns: 60px auto 50px;
+  -ms-grid-rows: 50px auto 50px auto;
+      grid-template-rows: 50px auto 50px auto;
   row-gap: 15px;
+  overflow-x: hidden;
 }
 
 .modal .modal-content .main-block-modal .main-card-modal:last-of-type {
@@ -760,23 +773,23 @@ main .data-card .progress-bar .progress-bar-content {
   -ms-grid-row: 1;
   -ms-grid-row-span: 1;
   -ms-grid-column: 2;
-  -ms-grid-column-span: 1;
-  grid-area: 1/2/2/3;
+  -ms-grid-column-span: 2;
+  grid-area: 1/2/2/4;
 }
 
-.modal .modal-content .main-block-modal .main-card-modal .main-card-modal-title h3.card-modal-title {
+.modal .modal-content .main-block-modal .main-card-modal .main-card-modal-title .title {
   color: rgba(0, 0, 0, 0.842);
   font-weight: 700;
   -webkit-transition: 0.3s;
   transition: 0.3s;
 }
 
-.modal .modal-content .main-block-modal .main-card-modal .main-card-modal-title h3.card-modal-title:hover {
+.modal .modal-content .main-block-modal .main-card-modal .main-card-modal-title .title:hover {
   cursor: pointer;
   color: #3cb4ac;
 }
 
-.modal .modal-content .main-block-modal .main-card-modal .main-card-modal-title h3.pledge {
+.modal .modal-content .main-block-modal .main-card-modal .main-card-modal-title .pledge {
   color: #3cb4ac;
   font-weight: 500;
 }
@@ -792,8 +805,8 @@ main .data-card .progress-bar .progress-bar-content {
   -ms-grid-row: 2;
   -ms-grid-row-span: 1;
   -ms-grid-column: 1;
-  -ms-grid-column-span: 2;
-  grid-area: 2/1/3/3;
+  -ms-grid-column-span: 3;
+  grid-area: 2/1/3/4;
 }
 
 .modal .modal-content .main-block-modal .main-card-modal .information {
@@ -803,6 +816,11 @@ main .data-card .progress-bar .progress-bar-content {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -ms-grid-row: 3;
+  -ms-grid-row-span: 1;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 1;
+  grid-area: 3/1/4/2;
 }
 
 .modal .modal-content .main-block-modal .main-card-modal .information span:first-of-type {
@@ -816,9 +834,149 @@ main .data-card .progress-bar .progress-bar-content {
   font-weight: 400;
 }
 
+.modal .modal-content .main-block-modal .main-card-modal .card-selected {
+  padding-top: 30px;
+  border-top: 1px solid rgba(128, 128, 128, 0.178);
+  -ms-grid-row: 4;
+  -ms-grid-row-span: 1;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 3;
+  grid-area: 4/1/5/4;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  row-gap: 20px;
+  position: relative;
+  display: none;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+.modal .modal-content .main-block-modal .main-card-modal .card-selected:before {
+  content: " ";
+  display: block;
+  position: absolute;
+  width: 140%;
+  height: 1px;
+  background-color: rgba(128, 128, 128, 0.178);
+  top: 0;
+  -webkit-transform: translateX(-50px);
+          transform: translateX(-50px);
+}
+
+.modal .modal-content .main-block-modal .main-card-modal .card-selected p {
+  text-align: center;
+  margin: 30px 0;
+  color: #7a7a7a;
+  font-size: 1.08rem;
+  font-weight: 400;
+  line-height: 1.6;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.modal .modal-content .main-block-modal .main-card-modal .card-selected .input-block {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  padding: 10px;
+}
+
+.modal .modal-content .main-block-modal .main-card-modal .card-selected .input-block .input-number {
+  -ms-flex-preferred-size: 100px;
+      flex-basis: 100px;
+  height: 40px;
+  border: 1px solid rgba(128, 128, 128, 0.178);
+  border-radius: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-column-gap: 10px;
+          column-gap: 10px;
+  padding-left: 20px;
+}
+
+.modal .modal-content .main-block-modal .main-card-modal .card-selected .input-block .input-number:hover {
+  cursor: pointer;
+  border-color: #3cb4ac;
+}
+
+.modal .modal-content .main-block-modal .main-card-modal .card-selected .input-block .input-number span {
+  color: #7a7a7a;
+  font-weight: 700;
+  opacity: 0.5;
+  -webkit-transform: translateY(-2.5px);
+          transform: translateY(-2.5px);
+}
+
+.modal .modal-content .main-block-modal .main-card-modal .card-selected .input-block .input-number input[type="number"] {
+  color: rgba(0, 0, 0, 0.842);
+  font-weight: 700;
+  background-color: transparent;
+  width: 70px;
+  height: 40px;
+  outline: none;
+  border: none;
+  border-radius: 0 20px 20px 0;
+}
+
+.modal .modal-content .main-block-modal .main-card-modal .card-selected .input-block button {
+  width: 75%;
+  max-width: 250px;
+  padding: 20px 15px;
+  background-color: #3cb4ac;
+  color: #fafafa;
+  font-weight: 700;
+  letter-spacing: 1px;
+  border: none;
+  border-radius: 30px;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  width: 50%;
+}
+
+.modal .modal-content .main-block-modal .main-card-modal .card-selected .input-block button:hover {
+  background-color: #147b74;
+  cursor: pointer;
+  -webkit-transform: scale(1.05);
+          transform: scale(1.05);
+}
+
 .modal .modal-content .main-block-modal .sold-out-card-modal {
   opacity: 0.5;
   pointer-events: none;
+}
+
+.toggle-pledge-button-mouse-over {
+  outline: 2px solid #147b74;
+}
+
+.modal-visible {
+  visibility: visible;
+  opacity: 1;
 }
 
 @media screen and (min-width: 670px) {
@@ -981,8 +1139,8 @@ main .data-card .progress-bar .progress-bar-content {
   .modal .modal-content .main-block-modal .main-card-modal {
     -ms-grid-columns: 60px auto 100px;
         grid-template-columns: 60px auto 100px;
-    -ms-grid-rows: 50px auto;
-        grid-template-rows: 50px auto;
+    -ms-grid-rows: 50px auto auto;
+        grid-template-rows: 50px auto auto;
   }
   .modal .modal-content .main-block-modal .main-card-modal input {
     -ms-grid-row: 1;
@@ -1007,8 +1165,8 @@ main .data-card .progress-bar .progress-bar-content {
     -ms-grid-row: 1;
     -ms-grid-row-span: 1;
     -ms-grid-column: 2;
-    -ms-grid-column-span: 2;
-    grid-area: 1/2/2/4;
+    -ms-grid-column-span: 1;
+    grid-area: 1/2/2/3;
   }
   .modal .modal-content .main-block-modal .main-card-modal p.card-modal-description {
     -ms-grid-row: 2;
@@ -1023,5 +1181,37 @@ main .data-card .progress-bar .progress-bar-content {
     -ms-grid-column: 3;
     -ms-grid-column-span: 1;
     grid-area: 1/3/2/4;
+  }
+  .modal .modal-content .main-block-modal .main-card-modal .card-selected {
+    -ms-grid-row: 3;
+    -ms-grid-row-span: 1;
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 3;
+    grid-area: 3/1/4/4;
+    padding-top: 10px;
+    border-top: 1px solid rgba(128, 128, 128, 0.178);
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    row-gap: 0;
+    position: relative;
+    display: none;
+  }
+  .modal .modal-content .main-block-modal .main-card-modal .card-selected p {
+    text-align: left;
+  }
+  .modal .modal-content .main-block-modal .main-card-modal .card-selected .input-block {
+    width: 300px;
+    padding-top: 20px;
   }
 }
