@@ -727,7 +727,7 @@ main .data-card .progress-bar .progress-bar-content {
   margin-bottom: 0;
 }
 
-.modal .modal-content .main-block-modal .main-card-modal input {
+.modal .modal-content .main-block-modal .main-card-modal > input {
   width: 30px;
   height: 30px;
   border: 5px solid white;
@@ -746,12 +746,12 @@ main .data-card .progress-bar .progress-bar-content {
   transition: 0.3s;
 }
 
-.modal .modal-content .main-block-modal .main-card-modal input:checked {
+.modal .modal-content .main-block-modal .main-card-modal > input:checked {
   background: #3cb4ac;
   outline: 2px solid #147b74;
 }
 
-.modal .modal-content .main-block-modal .main-card-modal input:hover {
+.modal .modal-content .main-block-modal .main-card-modal > input:hover {
   cursor: pointer;
   outline: 2px solid #147b74;
 }
@@ -836,15 +836,12 @@ main .data-card .progress-bar .progress-bar-content {
 
 .modal .modal-content .main-block-modal .main-card-modal .card-selected {
   padding-top: 30px;
-  border-top: 1px solid rgba(128, 128, 128, 0.178);
   -ms-grid-row: 4;
   -ms-grid-row-span: 1;
   -ms-grid-column: 1;
   -ms-grid-column-span: 3;
   grid-area: 4/1/5/4;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+  display: none;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -857,12 +854,11 @@ main .data-card .progress-bar .progress-bar-content {
           align-items: center;
   row-gap: 20px;
   position: relative;
-  display: none;
   -webkit-transition: 0.5s;
   transition: 0.5s;
 }
 
-.modal .modal-content .main-block-modal .main-card-modal .card-selected:before {
+.modal .modal-content .main-block-modal .main-card-modal .card-selected::before {
   content: " ";
   display: block;
   position: absolute;
@@ -963,6 +959,21 @@ main .data-card .progress-bar .progress-bar-content {
   cursor: pointer;
   -webkit-transform: scale(1.05);
           transform: scale(1.05);
+}
+
+.modal .modal-content .main-block-modal .no-reward {
+  -ms-grid-columns: 60px auto 100px;
+      grid-template-columns: 60px auto 100px;
+  -ms-grid-rows: 50px auto;
+      grid-template-rows: 50px auto;
+}
+
+.modal .modal-content .main-block-modal .no-reward .card-modal-description {
+  -ms-grid-row: 2;
+  -ms-grid-row-span: 1;
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 2;
+  grid-area: 2/2/3/4;
 }
 
 .modal .modal-content .main-block-modal .sold-out-card-modal {
@@ -1191,10 +1202,6 @@ main .data-card .progress-bar .progress-bar-content {
     -ms-grid-column-span: 3;
     grid-area: 3/1/4/4;
     padding-top: 10px;
-    border-top: 1px solid rgba(128, 128, 128, 0.178);
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
         -ms-flex-direction: row;
@@ -1207,7 +1214,6 @@ main .data-card .progress-bar .progress-bar-content {
             align-items: center;
     row-gap: 0;
     position: relative;
-    display: none;
   }
   .modal .modal-content .main-block-modal .main-card-modal .card-selected p {
     text-align: left;

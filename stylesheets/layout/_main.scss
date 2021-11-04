@@ -301,7 +301,7 @@ main {
 					margin-bottom: 0;
 				}
 
-				input {
+				> input {
 					width: 30px;
 					height: 30px;
 					border: 5px solid white;
@@ -367,17 +367,16 @@ main {
 
 				.card-selected {
 					padding-top: 30px;
-					border-top: 1px solid $light-gray;
 					grid-area: 4/1/5/4;
-					display: flex;
+					display: none; // when selected, it changes to flex
 					flex-direction: column;
 					justify-content: space-between;
 					align-items: center;
 					row-gap: 20px;
 					position: relative;
-					display: none;
 					transition: 0.5s;
-					&:before {
+
+					&::before {
 						content: " ";
 						display: block;
 						position: absolute;
@@ -440,6 +439,15 @@ main {
 							width: 50%;
 						}
 					}
+				}
+			}
+
+			.no-reward {
+				grid-template-columns: 60px auto 100px;
+				grid-template-rows: 50px auto;
+
+				.card-modal-description {
+					grid-area: 2/2/3/4;
 				}
 			}
 			.sold-out-card-modal {
