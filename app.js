@@ -116,7 +116,9 @@ mainModalBlock.addEventListener("click", (event) => {
 // Close modal
 closeModalButton.addEventListener("click", () => {
 	const modalCards = document.querySelectorAll(".card-selected");
+	const toggleButtons = document.querySelectorAll(".toggle-button");
+	
 	modalCards.forEach((card) => (card.style.display = "none"));
-
+	toggleButtons.forEach((button) => (button.checked = false));
 	displayModalAndBgBlur();
 });
