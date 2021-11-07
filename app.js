@@ -117,8 +117,12 @@ mainModalBlock.addEventListener("click", (event) => {
 closeModalButton.addEventListener("click", () => {
 	const modalCards = document.querySelectorAll(".card-selected");
 	const toggleButtons = document.querySelectorAll(".toggle-button");
-	
+
 	modalCards.forEach((card) => (card.style.display = "none"));
 	toggleButtons.forEach((button) => (button.checked = false));
-	displayModalAndBgBlur();
+	modalBlock.classList.toggle("modal-visible");
+	setTimeout(() => {
+		bgBlur.classList.toggle("bgBlur-modal-active");
+		window.scrollTo(0, 50);
+	}, 500);
 });
