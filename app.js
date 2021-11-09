@@ -8,6 +8,10 @@ const mainBlock = document.querySelector(".main-block");
 const bgBlur = document.querySelector(".bgBlur");
 const modalBlock = document.querySelector(".modal");
 const mainModalBlock = document.querySelector(".main-block-modal");
+const modalForm = document.querySelector("form");
+const modalMainCards = document.querySelectorAll(".main-card-modal");
+const modalToggleButtons = document.querySelectorAll(".main-card-modal .toggle-button");
+const modalExtraBoxes = document.querySelectorAll(".card-selected");
 const closeModalButton = document.querySelector(".close-modal");
 
 let animateLinks = false;
@@ -58,20 +62,15 @@ mainBlock.addEventListener("click", (event) => {
 	displayModalAndBgBlur();
 	const button = event.target;
 	const modalCardSelected = document.querySelector(`.${button.className}-pledge`);
-	const modalCardsSelection = document.querySelectorAll(".card-selected");
-
-	modalCardsSelection.forEach((card) => (card.style.display = "none"));
-
+	const modalCardButton = modalCardSelected.querySelector("input[type=radio]");
 	const extraBox = modalCardSelected.querySelector(".card-selected");
+
+	modalExtraBoxes.forEach((card) => (card.style.display = "none"));
+	modalCardSelected.classList.add("main-card-modal-selected");
+
+	modalCardButton.checked = true;
 	extraBox.style.display = "flex";
 });
-
-function displayModalAndBgBlur() {
-	bgBlur.style.height = getComputedStyle(document.body).height;
-	modalBlock.classList.toggle("modal-visible");
-	bgBlur.classList.toggle("bgBlur-modal-active");
-	window.scrollTo(0, 50);
-}
 
 // MODAL
 //////////////////////////////////////////////////////////
@@ -91,38 +90,59 @@ mainModalBlock.addEventListener("mouseout", (event) => {
 });
 
 //////////////////////////////////////////////////////
-// Select Pledge
+// Handles input toggle by clicking on modal card title
 mainModalBlock.addEventListener("click", (event) => {
 	if (!event.target.classList.contains("title")) return;
 
-	const toggleButton = event.target.closest(".main-card-modal").querySelector("input");
-	const toggleButtons = document.querySelectorAll(".toggle-button");
+	const cardSelected = event.target.closest(".main-card-modal");
+	const toggleButton = cardSelected.querySelector("input");
 
-	toggleButtons.forEach((button) => (button.checked = false));
+	showExtraBox(cardSelected);
 
 	toggleButton.checked = true;
 });
 
-////////////////////////////////////////////////////
-// Handle event when pledges are selected
-
-// useful step bellow
-// modalCardsSelection.forEach((card) => (card.style.display = "none"));
-// const extraBox = modalCardSelected.querySelector(".card-selected");
-// extraBox.style.display = "flex";
-// change the height of the selected pledge dynamically this time!!!!!!!!!!!
+/////////////////////////////////////////////////////
+// Handles input toggle
+modalForm.addEventListener("input", (event) => {
+	const cardSelected = event.target.closest(".main-card-modal");
+	showExtraBox(cardSelected);
+});
 
 ////////////////////////////////////////////////////
 // Close modal
 closeModalButton.addEventListener("click", () => {
-	const modalCards = document.querySelectorAll(".card-selected");
 	const toggleButtons = document.querySelectorAll(".toggle-button");
 
-	modalCards.forEach((card) => (card.style.display = "none"));
+	modalExtraBoxes.forEach((card) => (card.style.display = "none"));
 	toggleButtons.forEach((button) => (button.checked = false));
 	modalBlock.classList.toggle("modal-visible");
+
 	setTimeout(() => {
 		bgBlur.classList.toggle("bgBlur-modal-active");
-		window.scrollTo(0, 50);
+		window.scrollTo(0, 0);
 	}, 500);
 });
+
+///////////////////////////////////////////////////
+function displayModalAndBgBlur() {
+	bgBlur.style.height = getComputedStyle(document.body).height;
+	modalBlock.classList.toggle("modal-visible");
+	bgBlur.classList.toggle("bgBlur-modal-active");
+	window.scrollTo(0, 50);
+}
+
+function showExtraBox(cardSelected) {
+	const extraBox = cardSelected.querySelector(".card-selected");
+
+	modalExtraBoxes.forEach((box) => (box.style.display = "none"));
+	modalMainCards.forEach((box) => {
+		box.classList.remove("main-card-modal-selected");
+	});
+
+	cardSelected.classList.add("main-card-modal-selected");
+	if (extraBox) {
+		extraBox.style.display = "block";
+	}
+}
+
