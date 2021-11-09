@@ -295,7 +295,8 @@ main {
 				grid-template-columns: 60px auto 50px;
 				grid-template-rows: 50px auto 50px auto;
 				row-gap: 15px;
-				overflow-x: hidden;
+				transition: 0.45s;
+				overflow: hidden; // hide scroll bar when height changes
 
 				&:last-of-type {
 					margin-bottom: 0;
@@ -440,6 +441,10 @@ main {
 						}
 					}
 				}
+			}
+
+			.main-card-modal-selected {
+				border: 1px solid $dark-cyan;
 			}
 
 			.no-reward {

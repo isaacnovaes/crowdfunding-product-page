@@ -720,7 +720,9 @@ main .data-card .progress-bar .progress-bar-content {
   -ms-grid-rows: 50px auto 50px auto;
       grid-template-rows: 50px auto 50px auto;
   row-gap: 15px;
-  overflow-x: hidden;
+  -webkit-transition: 0.45s;
+  transition: 0.45s;
+  overflow: hidden;
 }
 
 .modal .modal-content .main-block-modal .main-card-modal:last-of-type {
@@ -959,6 +961,10 @@ main .data-card .progress-bar .progress-bar-content {
   cursor: pointer;
   -webkit-transform: scale(1.05);
           transform: scale(1.05);
+}
+
+.modal .modal-content .main-block-modal .main-card-modal-selected {
+  border: 1px solid #147b74;
 }
 
 .modal .modal-content .main-block-modal .no-reward {
