@@ -954,6 +954,7 @@ main .data-card .progress-bar .progress-bar-content {
   -webkit-transition: 0.5s;
   transition: 0.5s;
   width: 50%;
+  position: relative;
 }
 
 .modal .modal-content .main-block-modal .main-card-modal .card-selected .input-block button:hover {
@@ -961,6 +962,32 @@ main .data-card .progress-bar .progress-bar-content {
   cursor: pointer;
   -webkit-transform: scale(1.05);
           transform: scale(1.05);
+}
+
+.modal .modal-content .main-block-modal .main-card-modal .card-selected .input-block button:hover {
+  -webkit-transform: scale(1);
+          transform: scale(1);
+}
+
+.modal .modal-content .main-block-modal .main-card-modal .card-selected .input-block button span {
+  position: absolute;
+  color: red;
+  font-size: 0.6rem;
+  text-align: right;
+  top: 65px;
+  right: 2px;
+  width: 200%;
+  -webkit-transform: translateX(-50px);
+          transform: translateX(-50px);
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  opacity: 0;
+}
+
+.modal .modal-content .main-block-modal .main-card-modal .card-selected .input-block button .error {
+  -webkit-transform: translateX(0);
+          transform: translateX(0);
+  opacity: 1;
 }
 
 .modal .modal-content .main-block-modal .main-card-modal-selected {
