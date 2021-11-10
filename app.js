@@ -99,6 +99,7 @@ mainModalBlock.addEventListener("mouseout", (event) => {
 
 //////////////////////////////////////////////////////
 // Handles input toggle by clicking on modal card title
+// Fix it! make all card clicklable!!
 mainModalBlock.addEventListener("click", (event) => {
 	if (!event.target.classList.contains("title")) return;
 
