@@ -12,6 +12,8 @@ const modalForm = document.querySelector("form");
 const modalMainCards = document.querySelectorAll(".main-card-modal");
 const modalToggleButtons = document.querySelectorAll(".main-card-modal .toggle-button");
 const modalExtraBoxes = document.querySelectorAll(".card-selected");
+const modalContinueButtons = document.querySelectorAll(".card-selected button");
+const errorMessages = document.querySelectorAll(".span");
 const closeModalButton = document.querySelector(".close-modal");
 
 let animateLinks = false;
@@ -53,6 +55,7 @@ window.addEventListener("resize", () => {
 // Open modal without selection
 buttonBackProject.addEventListener("click", () => {
 	displayModalAndBgBlur();
+	window.scrollTo(0, 40);
 });
 
 // Open modal with selection
@@ -70,6 +73,11 @@ mainBlock.addEventListener("click", (event) => {
 
 	modalCardButton.checked = true;
 	extraBox.style.display = "flex";
+	extraBox.scrollIntoView({
+		behavior: "smooth",
+		block: "end",
+		inline: "center",
+	});
 });
 
 // MODAL
@@ -109,18 +117,43 @@ modalForm.addEventListener("input", (event) => {
 	showExtraBox(cardSelected);
 });
 
+///////////////////////////////////////////////////
+// Validate input and display success message
+mainModalBlock.addEventListener("click", (event) => {
+	if (event.target.type !== "button") return;
+
+	const continueButton = event.target;
+	const numberInput = continueButton.previousElementSibling.querySelector(`input[type="number"]`);
+	const inputValid = +numberInput.value >= +numberInput.min && +numberInput.value <= +numberInput.max ? true : false;
+	const errorMessage = continueButton.querySelector("span");
+
+	if (inputValid) {
+		numberInput.value = numberInput.min;
+		// show success modal
+		// select 7 variables
+		// donated, backers, bambooUnits, blackEditionUnits, modalBambooUnits, modalBlackEditionUnits,
+	} else {
+		errorMessage.classList.add("error");
+		setTimeout(() => {
+			errorMessage.classList.remove("error");
+		}, 2000);
+	}
+});
+
 ////////////////////////////////////////////////////
 // Close modal
 closeModalButton.addEventListener("click", () => {
-	const toggleButtons = document.querySelectorAll(".toggle-button");
-
 	modalExtraBoxes.forEach((card) => (card.style.display = "none"));
-	toggleButtons.forEach((button) => (button.checked = false));
+	errorMessages.forEach((message) => {
+		message.classList.remove("error");
+	});
+	modalToggleButtons.forEach((button) => (button.checked = false));
 	modalBlock.classList.toggle("modal-visible");
-
+	modalMainCards.forEach((box) => {
+		box.classList.remove("main-card-modal-selected");
+	});
 	setTimeout(() => {
 		bgBlur.classList.toggle("bgBlur-modal-active");
-		window.scrollTo(0, 0);
 	}, 500);
 });
 
@@ -129,7 +162,6 @@ function displayModalAndBgBlur() {
 	bgBlur.style.height = getComputedStyle(document.body).height;
 	modalBlock.classList.toggle("modal-visible");
 	bgBlur.classList.toggle("bgBlur-modal-active");
-	window.scrollTo(0, 50);
 }
 
 function showExtraBox(cardSelected) {
@@ -142,7 +174,6 @@ function showExtraBox(cardSelected) {
 
 	cardSelected.classList.add("main-card-modal-selected");
 	if (extraBox) {
-		extraBox.style.display = "block";
+		extraBox.style.display = "flex";
 	}
 }
-
