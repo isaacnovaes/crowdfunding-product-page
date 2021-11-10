@@ -87,14 +87,14 @@ mainModalBlock.addEventListener("mouseover", (event) => {
 	if (!event.target.classList.contains("title")) return;
 
 	const toggleButton = event.target.closest(".main-card-modal").querySelector("input");
-	toggleButton.style.outline = "2px solid hsl(176, 72%, 28%)";
+	toggleButton.style.boxShadow = "0 0 0 4px white, 0 0 0 5px hsl(176, 72%, 28%)";
 });
 
 mainModalBlock.addEventListener("mouseout", (event) => {
 	if (!event.target.classList.contains("title")) return;
 
 	const toggleButton = event.target.closest(".main-card-modal").querySelector("input");
-	toggleButton.style.outline = "";
+	toggleButton.style.boxShadow = "";
 });
 
 //////////////////////////////////////////////////////
