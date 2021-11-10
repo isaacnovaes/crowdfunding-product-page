@@ -305,8 +305,7 @@ main {
 				> input {
 					width: 30px;
 					height: 30px;
-					border: 5px solid white;
-					outline: 2px solid $light-gray;
+					box-shadow: 0 0 0 1px $light-gray;
 					border-radius: 50%;
 					padding: 2px;
 					grid-area: 1/1/2/2;
@@ -314,12 +313,15 @@ main {
 					transition: 0.3s;
 
 					&:checked {
+						width: 30px;
+						height: 30px;
 						background: $moderate-cyan;
-						outline: 2px solid $dark-cyan;
+						box-shadow: 0 0 0 4px white, 0 0 0 5px $dark-cyan;
+						// outline: 2px solid $dark-cyan;
 					}
 					&:hover {
 						cursor: pointer;
-						outline: 2px solid $dark-cyan;
+						box-shadow: 0 0 0 4px white, 0 0 0 5px $dark-cyan;
 					}
 				}
 
