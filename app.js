@@ -1,6 +1,5 @@
 "use strict";
-// commit changes
-// update units left!
+
 const hamburger = document.querySelector(".hamburger");
 const buttonBackProject = document.querySelector(".button-block button");
 const navLinks = document.querySelector(".nav-links");
@@ -63,18 +62,19 @@ buttonBackProject.addEventListener("click", () => {
 
 // Open modal with selection
 mainBlock.addEventListener("click", (event) => {
-	if (!event.target.type === "button") return;
+	if (!event.target.closest(".main-card")) return;
+
+	const button = event.target.closest(".main-card").querySelector(".card-footer button");
+	const modalCardSelected = document.querySelector(`.${button.className}-pledge`);
+	const modalCardToggleButton = modalCardSelected.querySelector("input[type=radio]");
+	const extraBox = modalCardSelected.querySelector(".card-selected");
 
 	displayModalAndBgBlur();
-	const button = event.target;
-	const modalCardSelected = document.querySelector(`.${button.className}-pledge`);
-	const modalCardButton = modalCardSelected.querySelector("input[type=radio]");
-	const extraBox = modalCardSelected.querySelector(".card-selected");
 
 	modalExtraBoxes.forEach((card) => (card.style.display = "none"));
 	modalCardSelected.classList.add("main-card-modal-selected");
 
-	modalCardButton.checked = true;
+	modalCardToggleButton.checked = true;
 	extraBox.style.display = "flex";
 	extraBox.scrollIntoView({
 		behavior: "smooth",
@@ -104,8 +104,14 @@ mainModalBlock.addEventListener("mouseout", (event) => {
 // Handles input toggling by clicking on modal card
 mainModalBlock.addEventListener("click", (event) => {
 	if (!event.target.closest(".main-card-modal")) return;
+
 	const cardSelected = event.target.closest(".main-card-modal");
 	const toggleButton = cardSelected.querySelector("input");
+
+	const allInputNumbers = document.querySelectorAll(".input-number input[type='number']");
+	allInputNumbers.forEach((input) => {
+		if (input.closest(".main-card-modal") !== cardSelected) input.value = input.min;
+	});
 
 	showExtraBox(cardSelected);
 
@@ -157,6 +163,7 @@ bgBlur.addEventListener("click", () => {
 // Close completed modal
 closeModalCompleted.addEventListener("click", () => {
 	resetModalCompleted();
+	// updateUnitsLeft();
 });
 bgBlur.addEventListener("click", () => {
 	if (modalCompleted.classList.contains("modal-completed-visible")) {
@@ -212,6 +219,20 @@ function resetModalCompleted() {
 	const numberOfDonators = document.querySelector(".data-card .backers h2");
 	const progressBar = document.querySelector(".progress-bar-content");
 	const numberInput = document.getElementById("inputValid");
+	const modalCard = numberInput.closest(".main-card-modal");
+	const modalNumberLeft = modalCard.querySelector(".information span");
+
+	if (modalNumberLeft) {
+		const selectClassString = modalCard.classList[1].slice().replace("pledge", "stand");
+		const mainNumberLeft = document.querySelector(`.${selectClassString} .card-footer .information span`);
+		modalNumberLeft.textContent = mainNumberLeft.textContent = +mainNumberLeft.textContent - 1;
+		if (+modalNumberLeft.textContent === 0) {
+			modalCard.classList.add("sold-out-card-modal");
+			const mainCard = document.querySelector(`.${selectClassString}`);
+			mainCard.classList.add("sold-out-card");
+			mainCard.querySelector("button").textContent = "Out of stock";
+		}
+	}
 
 	modalCompleted.classList.remove("modal-completed-visible");
 	bgBlur.classList.toggle("bgBlur-modal-active");
@@ -220,6 +241,7 @@ function resetModalCompleted() {
 		inline: "center",
 		block: "center",
 	});
+	
 	setTimeout(() => {
 		const updatedMoney = (formatStringToNumber(moneyDonated.innerText, 1) + +numberInput.value).toLocaleString("en-US");
 		moneyDonated.innerText = `$${updatedMoney}`;
@@ -236,3 +258,5 @@ function resetModalCompleted() {
 function formatStringToNumber(input, slice) {
 	return +input.slice(slice).replace(",", "");
 }
+
+function updateUnitsLeft() {}
