@@ -410,6 +410,14 @@ main .master-craft-block .button-block .bookmark-block span.bookmark-text {
   display: none;
 }
 
+main .master-craft-block .button-block .bookmarked-block span.bookmark-logo {
+  background-image: url("../../images/icon-bookmarked.svg");
+}
+
+main .master-craft-block .button-block .bookmarked-block span.bookmark-text {
+  color: #147b74;
+}
+
 main .data-card {
   background-color: #fafafa;
   border-radius: 10px;
@@ -472,7 +480,7 @@ main .data-card .progress-bar {
 main .data-card .progress-bar .progress-bar-content {
   height: inherit;
   border-radius: inherit;
-  width: 59.914%;
+  width: 89.914%;
   background-color: #3cb4ac;
   -webkit-transition: 0.5s;
   transition: 0.5s;
@@ -1186,7 +1194,6 @@ main .data-card .progress-bar .progress-bar-content {
     display: block;
     width: 56px;
     height: 56px;
-    background-image: url("../../images/icon-bookmark.svg");
     position: relative;
     z-index: 2;
   }
@@ -1198,6 +1205,7 @@ main .data-card .progress-bar .progress-bar-content {
             transform: translateX(-56px);
     border-radius: 50px;
     text-align: right;
+    font-weight: 500;
     width: 155px;
     position: relative;
     z-index: 1;

@@ -67,6 +67,15 @@ main {
 					display: none;
 				}
 			}
+
+			.bookmarked-block {
+				span.bookmark-logo {
+					background-image: url("../../images/icon-bookmarked.svg");
+				}
+				span.bookmark-text {
+					color: $dark-cyan;
+				}
+			}
 		}
 	}
 
@@ -112,7 +121,7 @@ main {
 			.progress-bar-content {
 				height: inherit;
 				border-radius: inherit;
-				width: 59.914%; // 59,914/100,000
+				width: 89.914%; // 89,914/100,000
 				background-color: $moderate-cyan;
 				transition: 0.5s;
 			}
