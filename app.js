@@ -4,6 +4,7 @@ const hamburger = document.querySelector(".hamburger");
 const buttonBackProject = document.querySelector(".button-block button");
 const navLinks = document.querySelector(".nav-links");
 const header = document.querySelector("header");
+const bookmarkBlock = document.querySelector(".bookmark-block");
 const mainBlock = document.querySelector(".main-block");
 const bgBlur = document.querySelector(".bgBlur");
 const modalBlock = document.querySelector(".modal");
@@ -51,6 +52,12 @@ window.addEventListener("resize", () => {
 		navLinks.classList.remove("nav-links-leave", "nav-links-enter");
 		animateLinks = false;
 	}
+});
+
+//////////////////////////////////////////////////////////
+//
+bookmarkBlock.addEventListener("click", (event) => {
+	event.currentTarget.classList.toggle("bookmarked-block");
 });
 
 ////////////////////////////////////////////////////////////
@@ -202,15 +209,17 @@ function closeModal() {
 }
 
 function resetModal() {
-	modalExtraBoxes.forEach((card) => (card.style.display = "none"));
-	errorMessages.forEach((message) => {
-		message.classList.remove("error");
-	});
-	modalToggleButtons.forEach((button) => (button.checked = false));
 	modalBlock.classList.toggle("modal-visible");
-	modalMainCards.forEach((box) => {
-		box.classList.remove("main-card-modal-selected");
-	});
+	setTimeout(() => {
+		modalExtraBoxes.forEach((card) => (card.style.display = "none"));
+		errorMessages.forEach((message) => {
+			message.classList.remove("error");
+		});
+		modalToggleButtons.forEach((button) => (button.checked = false));
+		modalMainCards.forEach((box) => {
+			box.classList.remove("main-card-modal-selected");
+		});
+	}, 100);
 }
 
 function resetModalCompleted() {
@@ -241,7 +250,7 @@ function resetModalCompleted() {
 		inline: "center",
 		block: "center",
 	});
-	
+
 	setTimeout(() => {
 		const updatedMoney = (formatStringToNumber(moneyDonated.innerText, 1) + +numberInput.value).toLocaleString("en-US");
 		moneyDonated.innerText = `$${updatedMoney}`;
@@ -258,5 +267,3 @@ function resetModalCompleted() {
 function formatStringToNumber(input, slice) {
 	return +input.slice(slice).replace(",", "");
 }
-
-function updateUnitsLeft() {}
