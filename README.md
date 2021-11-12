@@ -46,12 +46,16 @@ Users should be able to:
 - Mobile-first workflow
 - Semantic HTML5 markup
 - CSS custom properties
+- SASS
 - Flexbox
 - CSS Grid
 - JavaScript
+- Animations
 
 ### What I learned
 
+In this project, I extensively practice the modal component and its interactions with other elements of the page. It was a great challenge. Now I feel comfortable with working with modals.
+
 ### Continued development
 
-Use this section to outline areas that you want to continue focusing on in future projects. These could be concepts you're still not completely comfortable with or techniques you found useful that you want to refine and perfect.
+After learning how to deal with the modal component, now I am ready to practice with the slider component. For this purpose, I will try an challenge which focus mainly on the slider component.
