@@ -58,4 +58,4 @@ In this project, I extensively practice the modal component and its interactions
 
 ### Continued development
 
-After learning how to deal with the modal component, now I am ready to practice with the slider component. For this purpose, I will try an challenge which focus mainly on the slider component.
+After learning how to deal with the modal component, now I am ready to practice with the slider component. For this purpose, I will take a challenge which focus mainly on the slider component.
